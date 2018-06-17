@@ -1,0 +1,48 @@
+{% extends "indexBase.html" %}
+
+<!--Head Title-->
+{% block title %}Cultivo: Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car{% endblock %}
+
+{% block main %}
+<section class="wrapper style1">
+    <div class="container">
+        <div class="row 200%">
+            <div class="4u 12u(narrower)">
+                <div id="sidebar">
+                    
+                    <!-- Sidebar -->
+                    <section>
+                        <span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                        {% block sidebar %} 
+                        <p>No funciona</p>
+                        {% endblock %} 
+                    </section>
+                </div>
+            </div>
+            <div class="8u  12u(narrower) important(narrower)">
+                <div id="content">
+                    <!-- Content -->
+                    <article>
+                        <header>
+                            <h2>Cultivo</h2>
+                            <p>Simulacion de cultivo de caña de az&uacute;car</p>
+                        </header>
+                        <canvas  width="200" height="100"></canvas>
+                        <textarea name="resultados" rows="6" cols="35" readonly="readonly" title="Resultados" ></textarea>
+                        
+                        <footer>
+                            
+                        </footer>
+                    </article>   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<h2 title="Guardará en la base de datos para luego poder usarlas en cualquier nueva simulacion">Agregar características</h2>
+<div id="mySidenav" class="sidenav" title="Guardará en la base de datos para luego poder usarlas en cualquier nueva simulacion">
+    {% block crud %}
+    {% endbock %}
+</div>
+{% endblock %}
+

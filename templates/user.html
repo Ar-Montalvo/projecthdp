@@ -1,0 +1,182 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Usuario - Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car</title>
+		<meta charset="utf-8" />
+		{% block extrastatic %}
+		{% endblock %}
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+						<h1><a href="/cultivo/inicio" id="logo">Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car <em>by GT06</em></a></h1>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li>
+									<a href="/cultivo/inicio">Inicio</a>
+								</li>
+								<li>
+									<a href="#">Menu</a>
+									<ul>
+										<li><a href="#">An&aacute;lisis de producci&oacute;n</a></li>
+										<li>
+											<a href="#">An&aacute;lisis de comportamiento</a>
+											<ul>
+												<li><a href="#">Temperaturas Extremas</a></li>
+												<li><a href="#">Sequia</a></li>
+												<li><a href="#">Chubasco</a></li>
+												<li><a href="#">Niño</a></li>
+												<li><a href="#">Niña</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
+									</ul>
+								</li>
+								<li><a href="/cultivo/cultivo">Cultivo</a</li>
+								<li><a href="/cultivo/cosecha">Cosecha</a></li>
+								<li><a href="/cultivo/investigacion">Investigaci&oacute;n</a></li>
+								<li class="current"><a href="/cultivo/user">Usuario</a>
+									<ul>
+										<li><a href="#">Datos de Usuario</a>
+											<ul>
+												<li><a href="#">Nombre de Usuario</a></li>
+												<li><a href="#">Detalle de Usuario</a></li>
+												<li><a href="#">Cerrar Sesi&oacute;n</a></li>
+											</ul>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+
+				</div>
+
+				</div>
+
+			<!-- Main -->
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+
+								<article>
+									<header>
+										<h2>Usuario:</h2>
+										<p>Administrador</p>
+									</header>
+
+									<span class="image featured"><img src="{% static 'images/banner.jpg' %}" alt="" /></span>
+
+
+									<p>Phasellus odio risus.</p>
+								</article>
+
+						</div>
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+						<div class="row">
+							<section class="3u 6u(narrower) 12u$(mobilep)">
+								<h3>Links to Stuff</h3>
+								<ul class="links">
+									<li><a href="#">Mattis et quis rutrum</a></li>
+									<li><a href="#">Suspendisse amet varius</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan dolor</a></li>
+									<li><a href="#">Mattis rutrum accumsan</a></li>
+									<li><a href="#">Suspendisse varius nibh</a></li>
+									<li><a href="#">Sed et dapibus mattis</a></li>
+								</ul>
+							</section>
+							<section class="3u 6u$(narrower) 12u$(mobilep)">
+								<h3>More Links to Stuff</h3>
+								<ul class="links">
+									<li><a href="#">Duis neque nisi dapibus</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum accumsan sed</a></li>
+									<li><a href="#">Mattis et sed accumsan</a></li>
+									<li><a href="#">Duis neque nisi sed</a></li>
+									<li><a href="#">Sed et dapibus quis</a></li>
+									<li><a href="#">Rutrum amet varius</a></li>
+								</ul>
+							</section>
+							<section class="6u 12u(narrower)">
+								<h3>Get In Touch</h3>
+								<form>
+									<div class="row 50%">
+										<div class="6u 12u(mobilep)">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="6u 12u(mobilep)">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<textarea name="message" id="message" placeholder="Message" rows="5"></textarea>
+										</div>
+									</div>
+									<div class="row 50%">
+										<div class="12u">
+											<ul class="actions">
+												<li><input type="submit" class="button alt" value="Send Message" /></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
+					</div>
+
+					<!-- Icons -->
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+						</ul>
+
+					<!-- Copyright -->
+						<div class="copyright">
+							<ul class="menu">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
