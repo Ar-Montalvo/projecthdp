@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <!--
         Arcana by HTML5 UP
@@ -10,12 +11,61 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
+      <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     </head>
     <body>
-        
+          
+            <!-- Header -->
+            <div id="header">
+                
+                <!-- Logo -->
+                <h1><a href="index.html" id="logo">Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car <em>by GT06</em></a></h1>
+                
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <a href="{% url 'sccc:inicio'%}">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Menu</a>
+                            <ul>
+                                <li>
+                                    <a href="#">An&aacute;lisis de producci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="#">An&aacute;lisis de comportamiento</a>
+                                    <ul>
+                                        <li><a href="#">Temperaturas Extremas</a></li>
+                                        <li><a href="#">Sequia</a></li>
+                                        <li><a href="#">Chubasco</a></li>
+                                        <li><a href="#">Niño</a></li>
+                                        <li><a href="#">Niña</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'sccc:pagina_cultivo'%}">Cultivo</a></li>
+                        <li><a href="{% url 'sccc:pagina_cosecha'%}">Cosecha</a></li>
+                        <li><a href="{% url 'sccc:pagina_investigacion'%}">Investigaci&oacute;n</a></li>
+                        <li><a href="{% url 'sccc:pagina_usuario'%}">Usuario</a>
+                            <ul>
+                                <li><a href="#">Datos de Usuario</a>
+                                    <ul>
+                                        <li><a href="#">Nombre de Usuario</a></li>
+                                        <li><a href="#">Detalle de Usuario</a></li>
+                                        <li><a href="{% url 'logout' %}">Cerrar Sesi&oacute;n</a></li>
+                                    </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </nav>
+            </div>
+        </div>
             
         <!-- Main -->
         <section class="wrapper style1">
@@ -61,7 +111,7 @@
                                     <p>Sidebar on the left, content on the right.</p>
                                 </header>
                                     
-                                <span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+                                <span class="image featured"><img src="{% static 'images/banner.jpg' %}" alt="" /></span>
                                     
                                 <h3>Valores Promedio</h3>
                                 <table style="width: 15px; height: 11px;" border="1" cellspacing="1" cellpadding="1">
@@ -194,13 +244,15 @@
             
     </div>
         
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.dropotron.min.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="assets/js/main.js"></script>
+     <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'assets/js/skel.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Agregados por pedro-->
+    <script src="{% static 'assets/js/jmodal.js' %}"></script>
+    <script src="{% static 'assets/js/jslider.js' %}"></script>
         
 </body>
 </html>

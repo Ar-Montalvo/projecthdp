@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
-
+from django.urls import reverse_lazy
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'pojecthdp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':  'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pedro',#nombre de la base
+        'USER': 'postgres',#usuario
+        'PASSWORD': 'Ingeniero',#contraseña de la base de datos
+        'HOST': 'localhost',#el host
+        'PORT': 5432,#puerto por el que hace la comunicacion
     }
 }
 
@@ -105,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
 
 TIME_ZONE = 'UTC'
 
@@ -120,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Prueba para ver si cargan los css y js
+STATIC_ROOT = 'staticfiles'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),'templates/Login/','templates',]
+#esto es para decirle donde nos llevara despues de logearnos
+LOGIN_REDIRECT_URL = reverse_lazy('sccc:inicio')
+#esto es para que nos lleve a otro lado despues de deslogearnos
+LOGOUT_REDIRECT_URL = reverse_lazy('login')

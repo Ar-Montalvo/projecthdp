@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <!--
     Arcana by HTML5 UP
@@ -10,7 +11,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         
@@ -28,7 +29,7 @@
                 <nav id="nav">
                     <ul>
                         <li>
-                            <a href="index.html">Inicio</a>
+                            <a href="{% url 'sccc:inicio'%}">Inicio</a>
                         </li>
                         <li>
                             <a href="#">Menu</a>
@@ -49,16 +50,16 @@
                                 <li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
                             </ul>
                         </li>
-                        <li><a href="cultivo.html">Cultivo</a></li>
-                        <li><a href="cosecha.html">Cosecha</a></li>
-                        <li><a href="investigacion.html">Investigaci&oacute;n</a></li>
-                        <li><a href="user.html">Usuario</a>
+                        <li><a href="{% url 'sccc:pagina_cultivo' %}">Cultivo</a></li>
+                        <li><a href="{% url 'sccc:pagina_cosecha' %}">Cosecha</a></li>
+                        <li><a href="{% url 'sccc:pagina_investigacion' %}">Investigaci&oacute;n</a></li>
+                        <li><a href="{% url 'sccc:pagina_usuario' %}">Usuario</a>
                             <ul>
                                 <li><a href="#">Datos de Usuario</a>
                                     <ul>
                                         <li><a href="#">Nombre de Usuario</a></li>
                                         <li><a href="#">Detalle de Usuario</a></li>
-                                        <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+                                        <li><a href="{% url 'logout' %}">Cerrar Sesi&oacute;n</a></li>
                                     </ul>
                             </ul>
                         </li>
@@ -124,7 +125,7 @@
                 <div class="row">
                     <section class="6u 12u(narrower)">
                         <div class="box post">
-                            <a href="#" class="image left"><img src="images/campo1.jpg" alt="" /></a>
+                            <a href="#" class="image left"><img src="{% static 'images/campo1.jpg' %}" alt="" /></a>
                             <div class="inner">
                                 <h3>Suelo</h3>
                                 <p>Suspendisse eu.</p>
@@ -133,7 +134,7 @@
                     </section>
                     <section class="6u 12u(narrower)">
                         <div class="box post">
-                            <a href="#" class="image left"><img src="images/campo2.jpg" alt="" /></a>
+                            <a href="#" class="image left"><img src="{% static 'images/campo2.jpg' %}" alt="" /></a>
                             <div class="inner">
                                 <h3>Elevacion</h3>
                                 <p>Suspendisse eu.</p>
@@ -144,7 +145,7 @@
                 <div class="row">
                     <section class="6u 12u(narrower)">
                         <div class="box post">
-                            <a href="#" class="image left"><img src="images/campo3.jpg" alt="" /></a>
+                            <a href="#" class="image left"><img src="{% static 'images/campo3.jpg' %}" alt="" /></a>
                             <div class="inner">
                                 <h3>Temperatura ambiente</h3>
                                 <p>Suspendisse eu.</p>
@@ -153,7 +154,7 @@
                     </section>
                     <section class="6u 12u(narrower)">
                         <div class="box post">
-                            <a href="#" class="image left"><img src="images/campo4.jpg" alt="" /></a>
+                            <a href="#" class="image left"><img src="{% static 'images/campo4.jpg' %}" alt="" /></a>
                             <div class="inner">
                                 <h3>Humedad en el ambiente</h3>
                                 <p>Suspendisse eu.</p>
@@ -278,17 +279,15 @@
             </div>
         </div>
         
-        <!-- Scripts -->
-        
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.dropotron.min.js"></script>
-        <script src="assets/js/skel.min.js"></script>
-        <script src="assets/js/util.js"></script>
-        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="assets/js/main.js"></script>
-        <script src="assets/js/jbutton.js"></script>
-        <script src="assets/js/jmodal.js"></script>
-        <script src="assets/js/jslider.js"></script>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'assets/js/skel.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Agregados por pedro-->
+    <script src="{% static 'assets/js/jmodal.js' %}"></script>
+    <script src="{% static 'assets/js/jslider.js' %}"></script>
     </body>
 </html>
 
