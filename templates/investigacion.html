@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <!--
 	Arcana by HTML5 UP
@@ -10,7 +11,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
@@ -76,7 +77,7 @@
 											<ul>
 												<li><a>Nombre de Usuario</a></li>
 												<li><a>Detalle de Usuario</a></li>
-												<li><a href="#">Cerrar Sesi&oacute;n</a></li>
+												<li><a href="{% url 'logout' %}">Cerrar Sesi&oacute;n</a></li>
 											</ul>
 											</ul>
 										</li>
@@ -105,7 +106,7 @@
 													<th colspan="3" class="cabecera" style="text-align:center;background-color:#90EE90;color:black;">
 														<div style="float:right; padding:.1em;" class="noprint">
 															<a target="_blank" href="https://es.m.wikipedia.org/wiki/Ayuda:C%C3%B3mo_leer_una_ficha_de_tax%C3%B3n" title="Ayuda:C&oacute;mo leer una ficha de tax&oacute;n">
-																<img alt="Symbol question.svg" src="images/16px-Symbol_question.svg.png" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Symbol_question.svg/24px-Symbol_question.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Symbol_question.svg/32px-Symbol_question.svg.png 2x" data-file-width="180" data-file-height="185">
+																<img alt="Symbol question.svg" src="{% static 'images/16px-Symbol_question.svg.png' %}" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Symbol_question.svg/24px-Symbol_question.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Symbol_question.svg/32px-Symbol_question.svg.png 2x" data-file-width="180" data-file-height="185">
 															</a>
 														</div>
 														<div style="float:left;" class="noprint">
@@ -115,7 +116,7 @@
 														</th>
 													</tr>
 													<tr><td colspan="3" style="text-align:center;">
-															<img alt="Cut sugarcane.jpg" src="images/250px-Cut_sugarcane.jpg" width="250" height="186" data-file-width="2304" data-file-height="1712">
+															<img alt="Cut sugarcane.jpg" src="{% static 'images/250px-Cut_sugarcane.jpg' %}" width="250" height="186" data-file-width="2304" data-file-height="1712">
 															<br>
 															<span style="font-size:95%;">Caña de az&uacute;car cortada</span>
 														</td>
@@ -225,7 +226,7 @@
 											
 											</header>
 
-											<span class="image featured"><img src="images/banner.jpg" alt="" /></span>
+											<span class="image featured"><img src="{% static 'images/banner.jpg' %}" alt="" /></span>
 											<div class="mf-section-0" id="mf-section-0">
 												
 											</div>
@@ -236,7 +237,7 @@
 											La siembra consiste en la preparación de la tierra y el esparcimiento de los brotones de caña 
 											previamente seleccionados para este fin.</p>
 											
-											<span class="image featured"><img src="images/ciclos_cultivo.jpg" alt="" /></span>
+											<span class="image featured"><img src="{% static 'images/ciclos_cultivo.JPG' %}" alt="" /></span>
 											<div class="mf-section-0" id="mf-section-0">
 												
 											</div>
@@ -393,13 +394,12 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+	<!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'assets/js/skel.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
 
 	</body>
 </html>

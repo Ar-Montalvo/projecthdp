@@ -18,58 +18,57 @@
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	</head>
 	<body>
-		<div id="page-wrapper">
-
-			<!-- Header -->
-				<div id="header">
-
-					<!-- Logo -->
-						<h1><a href="/cultivo/inicio" id="logo">Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car <em>by GT06</em></a></h1>
-
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li>
-									<a href="/cultivo/inicio">Inicio</a>
-								</li>
-								<li>
-									<a href="#">Menu</a>
-									<ul>
-										<li><a href="#">An&aacute;lisis de producci&oacute;n</a></li>
-										<li>
-											<a href="#">An&aacute;lisis de comportamiento</a>
-											<ul>
-												<li><a href="#">Temperaturas Extremas</a></li>
-												<li><a href="#">Sequia</a></li>
-												<li><a href="#">Chubasco</a></li>
-												<li><a href="#">Niño</a></li>
-												<li><a href="#">Niña</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
-									</ul>
-								</li>
-								<li><a href="/cultivo/cultivo">Cultivo</a</li>
-								<li><a href="/cultivo/cosecha">Cosecha</a></li>
-								<li><a href="/cultivo/investigacion">Investigaci&oacute;n</a></li>
-								<li class="current"><a href="/cultivo/user">Usuario</a>
-									<ul>
-										<li><a href="#">Datos de Usuario</a>
-											<ul>
-												<li><a href="#">Nombre de Usuario</a></li>
-												<li><a href="#">Detalle de Usuario</a></li>
-												<li><a href="#">Cerrar Sesi&oacute;n</a></li>
-											</ul>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-
-				</div>
-
-				</div>
+		        <div id="page-wrapper">
+            
+            <!-- Header -->
+            <div id="header">
+                
+                <!-- Logo -->
+                <h1><a href="index.html" id="logo">Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car <em>by GT06</em></a></h1>
+                
+                <!-- Nav -->
+                <nav id="nav">
+                    <ul>
+                        <li>
+                            <a href="{% url 'sccc:inicio'%}">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="#">Menu</a>
+                            <ul>
+                                <li>
+                                    <a href="#">An&aacute;lisis de producci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="#">An&aacute;lisis de comportamiento</a>
+                                    <ul>
+                                        <li><a href="#">Temperaturas Extremas</a></li>
+                                        <li><a href="#">Sequia</a></li>
+                                        <li><a href="#">Chubasco</a></li>
+                                        <li><a href="#">Niño</a></li>
+                                        <li><a href="#">Niña</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{% url 'sccc:pagina_cultivo'%}">Cultivo</a></li>
+                        <li><a href="{% url 'sccc:pagina_cosecha'%}">Cosecha</a></li>
+                        <li><a href="{% url 'sccc:pagina_investigacion'%}">Investigaci&oacute;n</a></li>
+                        <li><a href="{% url 'sccc:pagina_usuario'%}">Usuario</a>
+                            <ul>
+                                <li><a href="#">Datos de Usuario</a>
+                                    <ul>
+                                        <li><a href="#">Nombre de Usuario</a></li>
+                                        <li><a href="#">Detalle de Usuario</a></li>
+                                        <li><a href="{% url 'logout' %}">Cerrar Sesi&oacute;n</a></li>
+                                    </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </nav>
+            </div>
+        </div>
 
 			<!-- Main -->
 				<section class="wrapper style1">

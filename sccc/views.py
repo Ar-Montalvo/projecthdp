@@ -1,36 +1,30 @@
 from django.shortcuts import render
-
-
+#importamos el forms para el registro del usuario
+from sccc.forms import RegistroForm
+#esto es para que django haga todo lo del registro
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm 
+from django.urls import reverse_lazy
 # Create your views here.
-from django.views.generic import TemplateView
-from django.http import request, response
-from .models import Topografia
-from .models import Suelo, Fertilizante, ManejoDelSuelo
-from .models import FactorControlable, Clima, CondicionAnual
-from .models import PlagaYEnfermedadDeLaPlanta, MaterialGenetico
-from .models import DensidadCañera, SimulacionCultivo
-
-
-
+from django.views.generic import TemplateView, CreateView
 
 class Index(TemplateView):
-    template_name = 'cultivo.html'
-    listaobjeto =
+    template_name = 'indexBase (2).html'
 
+class VistaCultivo(TemplateView):
+    template_name = 'cultivoh (2).html'
 
+class Investigacion(TemplateView):
+    template_name = 'investigacion.html'
 
-    def cultivo_init(self):
-        topografia = Topografia.__new__(Topografia)
+class Usuario(TemplateView):
+    template_name = 'user.html'
 
-        """output = ', '[topografia]"""
-        return response.HttpResponse()
+class VistaCosecha(TemplateView):
+    template_name = 'cosecha.html'
 
-    def obtenerlistaobjeto(self):
-
-        return 
-
-class Cultivo(TemplateView):
-    template_name = 'cultivoh.html'
-
-
-
+class RegistroUsuario(CreateView):
+	model=User
+	template_name='registrar.html'
+	form_class=RegistroForm
+	success_url=reverse_lazy('login')

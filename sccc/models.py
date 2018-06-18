@@ -264,8 +264,3 @@ class CicloProduccion(models.Model):
 #
 #
 #     #simulacion Cultivo
-
-
-
-
-
