@@ -1,6 +1,7 @@
 from _ast import mod
 
 from django.db import models
+from sccc.util import Mapeo
 
 # Create your models here.
 
@@ -12,7 +13,16 @@ class Topografia(models.Model):
     altitud = models.IntegerField()
     lluvias = models.IntegerField()
     radiacion = models.IntegerField()
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.topografia
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class Suelo(models.Model):
     tipoSuelo = models.CharField(max_lenght=30)
@@ -21,13 +31,33 @@ class Suelo(models.Model):
     degradacion = models.IntegerField()
     ventilacion = models.IntegerField()
     genera = models.ManyToOneRel(Topografia)
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db())
+
+    def __str__(self):
+        return self.tipoSuelo
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class Fertilizante(models.Model):
     nitrogeno = models.IntegerField()
     fosfotoGramP = models.IntegerField()
     potasioGramK = models.IntegerField()
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        tx = "N " + self.nitrogeno.__str__() + ", P "
+        tx = tx + self.fosfotoGramP.__str__() + ", K "
+        return tx + self.potasioGramK.__str__()
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class ManejoDelSuelo(models.Model):
     muestreo = models.CharField(max_length=10)
@@ -35,7 +65,15 @@ class ManejoDelSuelo(models.Model):
     espaciamiento = models.IntegerField()
     periodoRiego = models.IntegerField()
     utiliza = models.ManyToOneRel(Fertilizante)
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.muestreo
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
 
 
 class FactorControlable(models.Model):
@@ -45,6 +83,16 @@ class FactorControlable(models.Model):
     rs14 = models.ManyToOneRel(ManejoDelSuelo)
     requiere = models.ManyToOneRel(Suelo)
 
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        tx = "Prof: " + self.profundidadSiembra.__str__()
+        return tx + "mm, uso: " +self.anteriorUsoDelSuelo.__str__() + " años"
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class Clima(models.Model):
     fenomenoClimatico = models.CharField(max_length=50)
@@ -52,13 +100,29 @@ class Clima(models.Model):
     indiceInundacion = models.IntegerField()
     tempMax = models.IntegerField()
     tempMin = models.IntegerField()
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.fenomenoClimatico
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
 
 
 class PlagaYEnfermedadDeLaPlanta(models.Model):
     nombreEnfermedad = models.CharField(max_lenght=25)
     recomendacion = models.CharField(max_lenght=200)
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.nombreEnfermedad
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
 
 
 class CondicionAnual(models.Model):
@@ -66,18 +130,47 @@ class CondicionAnual(models.Model):
     diasEnEmerger = models.IntegerField()
     tieneMalezas = models.BooleanField()
     fenomenoClimatico = models.ManyToOneRel(Clima)
-    
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class MaterialGenetico(models.Model):
     nombreMaterial = models.CharField(max_length=30)
     potencialAzucarero = models.IntegerField()
-#Generar lista
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.nombreMaterial
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
 
 
 class DensidadCañera(models.Model):
     calidad = models.IntegerField()
     siembra = models.IntegerField()
     yema = models.IntegerField()
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def getcalidad(self, calidad):
+        return self.calidad
+
+    def getsiembra(self, siembra):
+        return self.siembra
+
+    def getyema(self, yema):
+        return self.yema
 
 
 class SimulacionCultivo(models.Model):
@@ -90,6 +183,15 @@ class SimulacionCultivo(models.Model):
     mg = models.ManyToOneRel(MaterialGenetico)
     pyenp = models.ManyToManyRel(PlagaYEnfermedadDeLaPlanta)
 
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.nombreSimulacionCultivo
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class Rendimiento(models.Model):
     pesoPromTalloGram = models.IntegerField()
@@ -100,6 +202,21 @@ class Rendimiento(models.Model):
     rendAzuIni = models.IntegerField()
     rendAzuFin = models.IntegerField()
 
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        tx = "Rend%: " + self.pesoPromTalloGram.__str__() + ", "
+        tx = tx + self.numPlantSemb.__str__() + ", "
+        tx = tx + self.numPlantGermi.__str__() + ", "
+        tx = tx + self.rendCaniaIni.__str__() + ", "
+        tx = tx + self.rendCaniaFin.__str__() + ", "
+        tx = tx + self.rendCaniaIni.__str__() + ", "
+        return tx + self.rendAzuFin.__str__()
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class Cosecha(models.Model):
     nombreSimulacionCosecha = models.CharField(max_length=50)
@@ -108,6 +225,15 @@ class Cosecha(models.Model):
     esQuemada = models.BooleanField()
     simulacionCultivo = models.ManyToOneRel(SimulacionCultivo)
 
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return self.nombreSimulacionCosecha
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
+
 
 class CicloProduccion(models.Model):
     ciclosDeProduccion = models.IntegerField()
@@ -115,6 +241,14 @@ class CicloProduccion(models.Model):
     rendimiento = models.ManyToOneRel(Rendimiento)
     cosecha = models.ManyToOneRel(Cosecha)
 
+    def getiter(self):
+        return iter(self.from_db(self))
+
+    def __str__(self):
+        return "num" + self.ciclosDeProduccion.__str__() + self.fechaDeCorte.__str__()
+
+    def __get_FIELD_display(self, field):
+        return super()._get_FIELD_display(field)
 
 #
 # class Caña(models.Model):
