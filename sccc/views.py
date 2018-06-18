@@ -13,8 +13,11 @@ class Index(TemplateView):
     template_name = 'indexBase (2).html'
 
 
-class VistaCultivo(TemplateView):
+class Cultivov(TemplateView):
     template_name = 'cultivoh (2).html'
+
+    def cultivo_init():
+    	return obtenerSimulacionCultivoForm(0)
 
 
 class Investigacion(TemplateView):
@@ -25,7 +28,7 @@ class Usuario(TemplateView):
     template_name = 'user.html'
 
 
-class VistaCosecha(TemplateView):
+class Cosechav(TemplateView):
     template_name = 'cosecha.html'
 
 
