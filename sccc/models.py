@@ -1,7 +1,7 @@
 from _ast import mod
 
 from django.db import models
-from sccc.util import Mapeo
+
 
 # Create your models here.
 
@@ -152,7 +152,7 @@ class MaterialGenetico(models.Model):
         return super()._get_FIELD_display(field)
 
 
-class DensidadCañera(models.Model):
+class DensidadCanera(models.Model):
     calidad = models.IntegerField()
     siembra = models.IntegerField()
     yema = models.IntegerField()

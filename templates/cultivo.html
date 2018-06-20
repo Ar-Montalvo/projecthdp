@@ -49,21 +49,17 @@
                                 <tr>
                                     <td><i>Suelo </i>
                                         <select name="Suelo">
-                                            <option>1111111</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>↓</option>
-                                            <option>+</option>
-                                        </select><br>
+                                            {% for su in sue %}
+                                            <option>{{su.__str__()}}</option>
+                                            {% endfor %}
+                                        </select>
+
+                                        <br>
                                         <i>Manejo del suelo </i>
                                         <select name="manejoDeSuelo">
-                                            <option>111111111111</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>↓</option>
-                                            <option>+</option>
+                                            {% for md in mds %}
+                                            <option>{{md.__str__()}}</option>
+                                            {% endfor %}
                                         </select><br>
                                         <i>Terreno con maleza</i>
                                         <input type="checkbox" name="tieneMalezas" value="ON" checked="checked" />
@@ -71,47 +67,39 @@
                                     <td><b>Densidad Cañera </b><br>
                                         <i>Material Genético </i>
                                         <select name="materialGenetico">
-                                            <option>1</option>
-                                            <option>2</option>
+                                            {% for mg in mgs %}
+                                            <option>{{mg.__str__()}}</option>
+                                            {% endfor %}
                                         </select><br>
                                         <i>Calidad </i>
-                                        <select name="calidad">
-                                            <option>★</option>
-                                            <option>★★</option>
-                                            <option>★★★</option>
-                                            <option>★★★★</option>
-                                            <option>★★★★★</option>
-                                        </select><br>
+                                        <div class="starselect">
+                                            <button value="1">★</button>
+                                            <button value="2">★</button>
+                                            <button value="3">★</button>
+                                            <button value="4">★</button>
+                                            <button value="5">★</button>
+                                        </div>
+                                        <br>
                                         <i>Siembra </i>
-                                        <select name="siembra">
-                                            <option>★</option>
-                                            <option>★★</option>
-                                            <option>★★★</option>
-                                            <option>★★★★</option>
-                                            <option>★★★★★</option>
-                                        </select></td>
+                                        <div class="starselect">
+                                            <button value="1">★</button>
+                                            <button value="2">★</button>
+                                            <button value="3">★</button>
+                                            <button value="4">★</button>
+                                            <button value="5">★</button>
+                                        </div>
                                     <td>
                                         <i>Clima </i>
                                         <select name="clima">
-                                            <option>12222</option>
-                                            <option>2</option>
-                                            <option>↓</option>
-                                            <option>+</option>
+                                            <{% for cli in climas %}
+                                            <option>{{cli.__str__()}}</option>
+                                            {% endfor %}
                                         </select><br><br>
                                         <i>Plagas <br>y enfermedades <br>de la planta </i>
                                         <select name="plagasYEnFermedadDeLaPlanta">
-                                            <option>13333333333</option>
-                                            <option>2</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>↓</option>
-                                            <option>+</option>
+                                            {% for pye in pyenps %}
+                                            <option>{{pye.__str__()}}</option>
+                                            {% endfor %}
                                         </select><br>
                                     </td>
                                 </tr>
@@ -150,7 +138,7 @@
                                 <tr>
                                     
                                     <td><b>Verdor</b></td>
-                                    <td>★★★</td>
+                                    <td><label></label>/td>
                                     <td>★★★★★</td>
                                     <td>★★★</td>
                                     <td>★★</td>
@@ -186,11 +174,284 @@
                     </div>
                 </div>
             </div>
-            <a href="analisis.html#nav" >
+            <a href="sinusar/analisis.html#nav" >
                 <button id="analisis" class="button">
                     Mostrar el an&aacute;lisis</button></a></div>
     </footer>
     {% endblock %}
         
+    {% block simulacion %}
+    <header>
+        <h2>Cultivo</h2>
+        <p>Simulacion de cultivo de caña de az&uacute;car</p>
+    </header>
+    <canvas  width="200" height="100"></canvas>
+    <textarea name="resultados" rows="6" cols="35" readonly="readonly" title="Resultados" ></textarea>
+    <footer>
 
+    </footer>
+{% block ward %}
+<h2 title="Guardará en la base de datos para luego poder usarlas en cualquier nueva simulacion">Agregar características</h2>
+<div id="mySidenav" class="sidenav" title="Guardará en la base de datos para luego poder usarlas en cualquier nueva simulacion">
+    <!-- Suelo -->
+    <button id="myBtn2" class="button">Suelo</button>
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="row 50%">
+                <div class="12u">
+
+                    <form action="" method="post">
+                        <table border="1" cellpadding="1">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <table >
+                                            <thead>
+                                                <tr>
+                                                    <th><span style="color: #333399;">Ingresar&nbsp;topograf&iacute;a</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" name="topografia" placeholder="Nueva Topografia" />
+                                                        <input type="text" name="descripcion" placeholder="Descripci&oacute;n" />
+                                                        <input type="text" name="temperaturaPromedio" placeholder="Temperatura Promedio"  />
+                                                        <input type="text" name="altitud" placeholder="Altitud (msnm)" />
+                                                        <input type="text" name="lluvias" placeholder="Precipitaciones (ml/año)" />
+                                                        <br>
+                                                        <strong><span title="categorizacion">Radiaci&oacute;n </span></strong>
+
+                                                        <select name="radiacion">
+                                                            <option>★</option>
+                                                            <option>★★</option>
+                                                            <option>★★★</option>
+                                                            <option>★★★★</option>
+                                                            <option>★★★★★</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th><span style="color: #333399;">Ingresar&nbsp;Suelo</span></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <input type="text" name="tipoDeSuelo" placeholder="Tipo de suelo" />
+                                                        <br>
+                                                        <strong>Homogeneo</strong>
+                                                        <input type="checkbox" name="homogeneo" title="Es Homogeneo" value="ON" checked="checked" />
+                                                        <br>
+                                                        <strong><span title="categorizacion">Textura</span> </strong>
+                                                        <select name="textura">
+                                                            <option>★</option>
+                                                            <option>★★</option>
+                                                            <option>★★★</option>
+                                                            <option>★★★★</option>
+                                                            <option>★★★★★</option>
+                                                        </select>
+                                                        <br>
+                                                        <strong><span title="categorizacion">Degradaci&oacute;n </span></strong>
+                                                        <select name="degradacion">
+                                                            <option>★</option>
+                                                            <option>★★</option>
+                                                            <option>★★★</option>
+                                                            <option>★★★★</option>
+                                                            <option>★★★★★</option>
+                                                        </select>
+                                                        <br>
+                                                        <strong><span title="categorizacion">Ventilaci&oacute;n</span></strong>
+                                                        <select  name="ventilacion">
+                                                            <option>★</option>
+                                                            <option>★★</option>
+                                                            <option>★★★</option>
+                                                            <option>★★★★</option>
+                                                            <option>★★★★★</option>
+                                                        </select>
+                                                        <br>
+                                                        <input type="number" name="humedad" align="center" placeholder="Humedad" title="%Humedad"/>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <input type="submit" name="guardarSuelo" value="Guardar" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Manejo del suelo -->
+    <button id="myBtn3" class="button">Manejo de suelo</button>
+
+    <!-- The Modal -->
+    <div id="myModal3" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Modal Header</h2>
+            </div>
+            <div class="modal-body">
+                <table border="0">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <form>
+                                    <b>Manejo del Suelo</b>
+                                    <input type="text" name="muestreo" placeholder="Muestreo" />
+                                    <input type="number" id="espaciamiento" placeholder="Espaciamiento" />
+                                    <input type="number" id="periodoDeRiego" placeholder="Periodo de riego" />
+                                    <i>Recuperable</i>
+                                    <input type="checkbox" id="recuperable" value="ON" checked="checked" />
+                                    <i>Fertilizante</i>
+                                    <select name="fertilizante">
+                                        <option>20-20-0</option>
+                                        <option>20-15-0</option>
+                                        <option>+</option>
+                                    </select>
+                                    <input type="submit" id="guardarFC" class="button" value="guardar" /></form>
+
+                            </td>
+                            <td><form>
+                                    <b>Fertilizante</b>
+                                    <input type="number" id="n" placeholder="Porcentaje Nitrógeno" />
+                                    <input type="number" id="k" placeholder="Porcentaje Potasio" />
+                                    <input type="number" id="p" placeholder="Porcentaje Fosforo" />
+                                    <input type="submit" id="guardarFert" class="button" value="guardar" /></form>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+            <div class="modal-footer">
+                <h3>Modal Footer</h3>
+            </div>
+        </div>
+
+    </div>
+    <!-- factor controlado -->
+    <button id="myBtn4" class="button">Factor controlado</button>
+
+    <!-- The Modal -->
+    <div id="myModal4" class="modal">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2><span style="color: #333399;">Ingresar Factores controlables</span></h2>
+            </div>
+            <div class="modal-body">
+
+                <table border="0" cellpadding="3">
+
+                    <tbody>
+                        <tr>
+                            <td><form>
+                                    <b>Caracteristicas</b>
+                                    <input type="number" id="profundidad" placeholder="Profundidad" />
+                                    <input type="number" id="usoRecurente" placeholder="Uso recurrente del suelo" />
+                                    <i>suelo</i>
+                                    <select name="suelo">
+                                        <option>arenoso</option>
+                                    </select>
+                                    <i>manejo de suelo</i>
+                                    <select name="manejoDelSuelo">
+                                        <option>primitivo</option>
+                                    </select>
+                                    <input type="submit" id="guardaFC" class="button" value="guardar" /></form>
+
+                            </td>
+                            <td><form>
+                                    <b>Plagas y enfermedades de la planta</b>
+                                    <i></i>
+                                    <input type="text" name="nombreDeLaPlagaOEnfermedad" placeholder="Nombre de la plaga o enfermedad" />
+                                    <input type="text" name="recomendaciones" placeholder="Recomendaciones para lidiar con el problema" />
+                                    <input type="submit" id="guardaPyEnP" class="button" value="guardar" /></form>
+
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+    <!-- factor temporal -->
+    <button id="myBtn5" class="button">Factor temporal</button>
+
+    <!-- The Modal -->
+    <div id="myModal5" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Fenomenos temporales</h2>
+            </div>
+            <div class="modal-body">
+                <table border="0">
+                    <thead>
+                        <tr>
+                            <th>Condiciones anuales</th>
+                            <th>Clima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Anomalias en la plantacion</b>
+                                <input type="text" id="anomaliasEnLaPlantacion" placeholder="Anomalias en la plantacion"/>
+                                <input type="text" id="fechaDeEmergencia" placeholder="Fecha en que se espera que emerja" />
+                                <input type="checkbox" id="tieneMalezas" value="ON" checked="checked" />
+                                <select name="clima">
+                                    <option>Seco</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" id="fenomenoClimatico" placeholder="Fenomeno Climatico" />
+                                <input type="number" id="indiceDeSequia" placeholder="Indice de sequia" />
+                                <input type="number" id="indiceInundaciones" placeholder="Indice de inundaciones" />
+                                <input type="number" id="tempMax" placeholder="Temperatura maxima" />
+                                <input type="number" id="tempMin" placeholder="Temperatura minima" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <h3>Guardar en la base de datos</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+    {% endblock %}
 

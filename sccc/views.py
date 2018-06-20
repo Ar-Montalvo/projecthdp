@@ -7,14 +7,40 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 # Create your views here.
 from django.views.generic import TemplateView, CreateView
+from sccc.models import SimulacionCultivo, DensidadCanera
+from sccc.models import MaterialGenetico, CondicionAnual
+from sccc.models import PlagaYEnfermedadDeLaPlanta,Clima
+from sccc.models import FactorControlable, ManejoDelSuelo
+from sccc.models import Fertilizante, Suelo, Topografia
 
 
-class Index(TemplateView):
-    template_name = 'indexBase (2).html'
+class IndexV(TemplateView):
+    template_name = 'index.html'
 
 
-class VistaCultivo(TemplateView):
-    template_name = 'cultivoh (2).html'
+class CultivoV(TemplateView):
+    template_name = 'cultivo.html'
+
+    sco = SimulacionCultivo
+    dco = DensidadCanera
+    mgo = MaterialGenetico
+    cao = CondicionAnual
+    pyo = PlagaYEnfermedadDeLaPlanta
+    clo = Clima
+    fco = FactorControlable
+    mdo = ManejoDelSuelo
+    feo = Fertilizante
+    suo = Suelo
+    too = Topografia
+
+
+def init_list(request):
+    sue = Suelo.from_db(Suelo)
+    mds = ManejoDelSuelo.from_db(ManejoDelSuelo)
+    mgs = MaterialGenetico.from_db(MaterialGenetico)
+    climas = Clima.from_db(Clima)
+    pyenps = PlagaYEnfermedadDeLaPlanta.from_db()
+    return render(request, 'sccc/cultivo.html', {'sue': sue, 'mds': mds, 'mgs': mgs, 'climas': climas, 'pyenps': pyenps})
 
 
 class Investigacion(TemplateView):
