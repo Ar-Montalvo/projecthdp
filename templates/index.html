@@ -1,21 +1,20 @@
 {% load staticfiles %}
 <!DOCTYPE HTML>
 <!--
-        Arcana by HTML5 UP
-        html5up.net | @ajlkn
-        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Arcana by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
     <head>
-        <title>SCCC - INICIO</title>
+        <title>{% block title %} {% endblock %}</title>
         <meta charset="utf-8" />
-        {% block extrastatic %}
-        {% endblock %}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        
     </head>
     <body>
         <div id="page-wrapper">
@@ -24,61 +23,37 @@
             <div id="header">
                 
                 <!-- Logo -->
-                <h1><a href="index.html#nav" id="logo" ><image width="50px" src="images/sc3.png" alt="Simulador de caña de az&uacute;car"> </image><em>GTE06</em></a></h1>
+                <h1><a href="index.html" id="logo">Simulaci&oacute;n de Cultivo y Cosecha de Ca&ntilde;a de Az&uacute;car <em>by GT06</em></a></h1>
                 
                 <!-- Nav -->
-                
                 <nav id="nav">
-                    <ul>							
-                        <li class="current">
-                            
-                            <a href="index.html#nav">Inicio</a>
-                        </li>
-                        <li><a href="cultivo.html#nav">Cultivo</a>
-                            <ul>
-                                <li>
-                                    <a title="analisis de comportamiento frente a"> comportamiento</a>
-                                    <ul>
-                                        <li><a href="cultivo.html#sidebar">Temperaturas Extremas</a></li>
-                                        <li><a href="cultivo.html#sidebar">Sequia</a></li>
-                                        <li><a href="cultivo.html#sidebar">Chubasco</a></li>
-                                        <li><a href="cultivo.html#sidebar">Niño</a></li>
-                                        <li><a href="cultivo.html#sidebar">Niña</a></li>
-                                    </ul>
-                                </li>
-                                <li><a title="Simulaciones hechas por el usuario">previas</a>
-                                    <ul><li name="simulacion" id="sim_nombre" placeholder="Escriba un nombre" title="Nombre para guardar la simulacion actual">Sim1</li></ul></li>
-                            </ul>
-                        <li><a href="cosecha.html#nav">Cosecha</a><ul>
-                                <li><a href="cosecha.html#sidebar">An&aacute;lisis de producci&oacute;n</a></li>
-                                <li><a href="analisis.html#post-produccion">Simulaci&oacute;n PostProducci&oacute;n</a></li>
-                            </ul>
+                    <ul>
+                        <li>
+                            <a href="{% url 'sccc:inicio'%}">Inicio</a>
                         </li>
                         <li>
-                            <a href="investigacion.html#nav">Informaci&oacute;n</a>
+                            <a href="#">Menu</a>
                             <ul>
                                 <li>
-                                    <a href="investigacion.html##Ca&ntilde;a de az&uacute;car">Ca&ntilde;a de az&uacute;car</a>
+                                    <a href="#">An&aacute;lisis de producci&oacute;n</a>
+                                </li>
+                                <li>
+                                    <a href="#">An&aacute;lisis de comportamiento</a>
                                     <ul>
-                                        <li><a href="investigacion.html#Descripci&oacute;n">Descripci&oacute;n</a> </li>
-                                        <li><a href="investigacion.html#Distribuci&oacute;n">Distribuci&oacute;n</a> </li>
-                                        <li><a href="investigacion.html#Usos">Usos:</a>
-                                            <ul>
-                                                <li><a href="investigacion.html#Az&uacute;car,_jugo">Az&uacute;car, jugo</a> </li>
-                                                <li><a href="investigacion.html#Bebidas_alcoh&oacute;licas">Bebidas alcoh&oacute;licas</a> </li>
-                                                <li><a href="investigacion.html#Usos_m&eacute;dicos">Usos m&eacute;dicos</a> </li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="investigacion.html#Cultivo">Cultivo</a> </li>
-                                        <li><a href="investigacion.html#Proceso_industrial">Proceso industrial</a> </li>
-                                        <li><a href="investigacion.html#Taxonom&iacute;a">Taxonom&iacute;a</a> </li>
-                                        <li><a href="investigacion.html#V&eacute;ase_tambi&eacute;n">V&eacute;ase tambi&eacute;n</a> </li>
-                                        <li><a href="investigacion.html#Referencias">Referencias</a> </li>
-                                        <li><a href="#Bibliograf&iacute;a">Bibliograf&iacute;a</a> </li>
+                                        <li><a href="#">Temperaturas Extremas</a></li>
+                                        <li><a href="#">Sequia</a></li>
+                                        <li><a href="#">Chubasco</a></li>
+                                        <li><a href="#">Niño</a></li>
+                                        <li><a href="#">Niña</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="#">Simulaci&oacute;n PostProduccion</a></li>
                             </ul>
-                        <li><a href="user.html">Usuario</a>
+                        </li>
+                        <li><a href="{% url 'sccc:pagina_cultivo' %}">Cultivo</a></li>
+                        <li><a href="{% url 'sccc:pagina_cosecha' %}">Cosecha</a></li>
+                        <li><a href="{% url 'sccc:pagina_investigacion' %}">Investigaci&oacute;n</a></li>
+                        <li><a href="{% url 'sccc:pagina_usuario' %}">Usuario</a>
                             <ul>
                                 <li><a href="#">Datos de Usuario</a>
                                     <ul>
@@ -89,130 +64,135 @@
                             </ul>
                         </li>
                     </ul>
+                    
                 </nav>
-                
             </div>
-            
-            <!-- Banner -->
-            <section id="banner">
-                <header>
-                    <h2>Trabajo Exaula Tema 06<em> HDP115 Te&oacute;rico 2 <a href="http://html5up.net">Ing. Rudy Chicas</a> </em></h2>
-                    <a href="#grupo" class="button">GTE06</a>
+        </div>
+        
+        <!--Aqui se colocara el codigo complementario-->
+        {% block main %}
+        
+        <!-- Banner -->
+        <section id="banner">
+            <header>
+                <h2>Trabajo Exaula Tema 06<em> HDP115 Te&oacute;rico 2 <a href="http://html5up.net">Ing. Rudy Chicas</a> </em></h2>
+                <a href="#grupo" class="button">GTE06</a>
+            </header>
+        </section>
+        
+        <!-- Highlights -->
+        <section class="wrapper style1">
+            <div class="container" id="top">
+                <div class="row 200%">
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-paper-plane"></i>
+                            <h3>Objetivo del Sistema</h3>
+                            <p>Que el usuario pueda observar los resultados promedios para saber si dadas las variables climaticas del terreno, le resulte oportuno realizar su inversion.</p>
+                        </div>
+                    </section>
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-pencil"></i>
+                            <h3>Es importante</h3>
+                            <p>El usuario debera tener conocimiento basico de economia e inversion para que le resulte mas practico al momento de toma de deciciones.</p>
+                        </div>
+                    </section>
+                    <section class="4u 12u(narrower)">
+                        <div class="box highlight">
+                            <i class="icon major fa-wrench"></i>
+                            <h3>Talvez necesite</h3>
+                            <p>Conocimientos basicos de principios agronomicos</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gigantic Heading -->
+        <section class="wrapper style2">
+            <div class="container">
+                <header class="major">
+                    <h2>Cultivo y cosecha de caña de az&uacute;car</h2>
+                    <p>Variables a tomar en cuenta. </p>
                 </header>
-            </section>
-            
-            <!-- Highlights -->
-            <section class="wrapper style1">
-                <div class="container" id="top">
-                    <div class="row 200%">
-                        <section class="4u 12u(narrower)">
-                            <div class="box highlight">
-                                <i class="icon major fa-paper-plane"></i>
-                                <h3>Objetivo del Sistema</h3>
-                                <p>Que el usuario pueda observar los resultados promedios para saber si dadas las variables climaticas del terreno, le resulte oportuno realizar su inversion.</p>
+            </div>
+        </section>
+        
+        <!-- Posts -->
+        <section class="wrapper style1">
+            <div class="container">
+                <div class="row">
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="{% static 'images/campo1.jpg' %}" alt="" /></a>
+                            <div class="inner">
+                                <h3>Suelo</h3>
+                                <p>Suspendisse eu.</p>
                             </div>
-                        </section>
-                        <section class="4u 12u(narrower)">
-                            <div class="box highlight">
-                                <i class="icon major fa-pencil"></i>
-                                <h3>Es importante</h3>
-                                <p>El usuario debera tener conocimiento basico de economia e inversion para que le resulte mas practico al momento de toma de deciciones.</p>
+                        </div>
+                    </section>
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="{% static 'images/campo2.jpg' %}" alt="" /></a>
+                            <div class="inner">
+                                <h3>Elevacion</h3>
+                                <p>Suspendisse eu.</p>
                             </div>
-                        </section>
-                        <section class="4u 12u(narrower)">
-                            <div class="box highlight">
-                                <i class="icon major fa-wrench"></i>
-                                <h3>Talvez necesite</h3>
-                                <p>Conocimientos basicos de principios agronomicos</p>
-                            </div>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-            
-            <!-- Gigantic Heading -->
-            <section class="wrapper style2">
-                <div class="container">
-                    <header class="major">
-                        <h2>Cultivo y cosecha de caña de az&uacute;car</h2>
-                        <p>Variables a tomar en cuenta. </p>
-                    </header>
+                <div class="row">
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="{% static 'images/campo3.jpg' %}" alt="" /></a>
+                            <div class="inner">
+                                <h3>Temperatura ambiente</h3>
+                                <p>Suspendisse eu.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="6u 12u(narrower)">
+                        <div class="box post">
+                            <a href="#" class="image left"><img src="{% static 'images/campo4.jpg' %}" alt="" /></a>
+                            <div class="inner">
+                                <h3>Humedad en el ambiente</h3>
+                                <p>Suspendisse eu.</p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-            
-            <!-- Posts -->
-            <section class="wrapper style1">
-                <div class="container">
-                    <div class="row">
-                        <section class="6u 12u(narrower)">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/campo1.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>Suelo</h3>
-                                    <p>Suspendisse eu.</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="6u 12u(narrower)">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/campo2.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>Elevacion</h3>
-                                    <p>Suspendisse eu.</p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                    <div class="row">
-                        <section class="6u 12u(narrower)">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/campo3.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>Temperatura ambiente</h3>
-                                    <p>Suspendisse eu.</p>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="6u 12u(narrower)">
-                            <div class="box post">
-                                <a href="#" class="image left"><img src="images/campo4.jpg" alt="" /></a>
-                                <div class="inner">
-                                    <h3>Humedad en el ambiente</h3>
-                                    <p>Suspendisse eu.</p>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- CTA -->
-            <section id="cta" class="wrapper style3">
-                <div class="container">
-                    <header>
-                        <h2>Otros factores que pueden afectar el proceso</h2>
-                        <a href="investigacion.html#article" class="button">Informaci&oacute;n</a> <b><a title="Ir a arriba" href="#nav"> ↑ </a></b>
-                    </header>
-                </div>
-            </section>
-            
-            <!-- Footer -->
-            <div id="footer">
-                <div class="back-to-top" style="display: block; opacity: 1;"><span class="icon-keyboard_arrow_up">↑</span></div>
-                <div class="container">
-                    <div class="row">
-                        <section class="3u 6u(narrower) 12u$(mobilep)">
-                            <h3 id="Bibliograf&iacute;a">Bibliograf&iacute;a</h3>
-                            <ul class="links">
-                                <li><a href="https://es.wikipedia.org/wiki/Saccharum_officinarum">WikiPedia</a></li>
-                                
-                                
-                            </ul>
-                        </section>
-                        <section class="3u 6u$(narrower) 12u$(mobilep)">
-                            <h3>
-                                <a target="_blank" href="https://www.google.com.sv/search?q=caña+de+azucar&sourceid=opera&ie=UTF-8&oe=UTF-8" title="Buscar en GOOGLE">Mayor informaci&oacute;n</a></h3>
-                            <li><a target="_blank" href="http://cañadeazucar.net">Caña de azucar.net</a></li>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section id="cta" class="wrapper style3">
+            <div class="container">
+                <header>
+                    <h2>Otros factores que pueden afectar el proceso</h2>
+                    <a href="investigacion.html" class="button">Informaci&oacute;n</a> <b><a title="Ir a arriba" href="#nav"> ↑ </a></b>
+                </header>
+            </div>
+        </section>
+        {% endblock %}
+        <!-- Footer -->
+        <div id="footer">
+            <div class="back-to-top" style="display: block; opacity: 1;"><span class="icon-keyboard_arrow_up">↑</span></div>
+            <div class="container">
+                <div class="row">
+                    <section class="3u 6u(narrower) 12u(mobilep)">
+                        <h3 id="Bibliograf&iacute;a">Bibliograf&iacute;a</h3>
+                        <ul class="links">
+                            <li><a href="https://es.wikipedia.org/wiki/Saccharum_officinarum">WikiPedia</a></li>
+                            
+                            
+                        </ul>
+                    </section>
+                    <section class="3u 6u(narrower) 12u(mobilep)">
+                        <ul>
+                            <li><h3>
+                                    <a target="_blank" href="https://www.google.com.sv/search?q=caña+de+azucar&sourceid=opera&ie=UTF-8&oe=UTF-8" title="Buscar en GOOGLE">Mayor informaci&oacute;n</a></h3>
+                                <a target="_blank" href="http://cañadeazucar.net">Caña de azucar.net</a></li>
                             <li>
                                 <a target="_blank" href="https://canadeazucaranahuac.blogspot.com/2010/10/siembra-y-cultivo.html">
                                     Siembra y cultivo
@@ -222,9 +202,9 @@
                                     En El Salvador
                                 </a>
                             </li>
-                            <br>
-                            <h3>Ficha T&eacute;cnica</h3>
+                            
                             <li>
+                                <h3>Ficha T&eacute;cnica</h3>
                                 <a target="_blank" href="doc/">
                                     Argentina
                                 </a>
@@ -234,75 +214,80 @@
                                     M&eacute;xico
                                 </a>
                             </li>
-                            <br>
-                            <h3>Mercado</h3>
-                            <li><a target="_blank" href="http://azucardeelsalvador.com">El Salvador</a></li>
+                            
+                            
+                            <li><h3>Mercado</h3><a target="_blank" href="http://azucardeelsalvador.com">El Salvador</a></li>
                             <li><a target="_blank" href='https://www.centralamericadata.com/es/search?q1=content_es_le:"caña+de+az&uacute;car"&q2=mattersInCountry_es_le:"El+Salvador"'>
                                     Central America Data
                                 </a>
-                            </li>
-                        </section>
+                            </li></ul>
+                    </section>
+                    
+                    <section class="6u 12u(narrower)" id="grupo">
                         
-                        <section class="6u 12u(narrower)" id="grupo">
-                            <b>HDP115 GT2 GTE06 Tarea #6: <i>Simulación de cultivo y cosecha</i></b>
-                            <li><i>Mar&iacute;n De la O, Bryan Humberto. </i>MD13017 GL04</li>
+                        <b>HDP115 GT2 GTE06 Tarea #6: <i>Simulación de cultivo y cosecha</i></b>
+                        <ol><li><i>Mar&iacute;n De la O, Bryan Humberto. </i>MD13017 GL04</li>
                             <li><i>Mor&aacute;n,                . </i>CARNET GL00</li>
                             <li><i>Montalvo Funes, Pedro Arnulfo. </i>MF10006 GL10</li>
-                            <li><i>Ochoa Garc&iacute;a, Diego de Jes&uacute;s. </i>OG16003 GL05</li>
-                            <b>Consulta al Grupo de desarrollo</b>
-                            <form>
-                                <div class="row 50%">
-                                    <div class="6u 12u(mobilep)">
-                                        <input type="text" name="name" id="name" placeholder="Tu Nombre" />
-                                    </div>
-                                    <div class="6u 12u(mobilep)">
-                                        <input type="email" name="email" id="email" placeholder="Correo Electr&oacute;nico" />
-                                    </div>
+                            <li><i>Ochoa Garc&iacute;a, Diego de Jes&uacute;s. </i>OG16003 GL05</li></ol>
+                        <b>Consulta al Grupo de desarrollo</b>
+                        <form>
+                            <div class="row 50%">
+                                <div class="6u 12u(mobilep)">
+                                    <input type="text" name="name" id="name" placeholder="Tu Nombre" />
                                 </div>
-                                <div class="row 50%">
-                                    <div class="12u">
-                                        <textarea name="message" id="message" placeholder="Mensaje" rows="5"></textarea>
-                                    </div>
+                                <div class="6u 12u(mobilep)">
+                                    <input type="email" name="email" id="email" placeholder="Correo Electr&oacute;nico" />
                                 </div>
-                                <div class="row 50%">
-                                    <div class="12u">
-                                        <ul class="actions">
-                                            <li><input type="submit" class="button alt" value="Enviar Mensaje" /></li>
-                                        </ul>
-                                    </div>
+                            </div>
+                            <div class="row 50%">
+                                <div class="12u">
+                                    <textarea name="message" id="message" placeholder="Mensaje" rows="5"></textarea>
                                 </div>
-                            </form>
-                            
-                        </section>
-                    </div>
+                            </div>
+                            <div class="row 50%">
+                                <div class="12u">
+                                    <ul class="actions">
+                                        <li><input type="submit" class="button alt" value="Enviar Mensaje" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </section>
                 </div>
-                
-                
-                <!-- Icons -->
-                <ul class="icons">
-                    <!-- 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                                                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> -->
-                    <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                    <!--						<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                                                            <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
+            </div>
+            
+            
+            <!-- Icons -->
+            <ul class="icons">
+                <!-- 						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                                                        <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li> -->
+                <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                <!--						<li><a href="#" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                                                        <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li> -->
+            </ul>
+            
+            <!-- Copyright -->
+            <div class="copyright">
+                <ul class="menu">
+                    <li>&copy; <em>UES</em>. All rights reserved</li>
+                    <li>Design by: GTE06 for HDP115 Based upon:
+                        <a href="http://html5up.net/arcana">HTML5 UP-<i>Arcana</i></a>
+                </li>
                 </ul>
-                
-                <!-- Copyright -->
-                <div class="copyright">
-                    <ul class="menu">
-                        <li>&copy; <em>UES</em>. All rights reserved</li><li>Design by: GTE06 for HDP115 Based upon: <a href="http://html5up.net/arcana">HTML5 UP-<i>Arcana</i> <li><a title="Ir a arriba" href="#nav"> ↑ </a></li></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
         
-        <!-- Scripts -->
-        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-        <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
-        <script src="{% static 'assets/js/skel.min.js' %}"></script>
-        <script src="assets/js/util.js"></script>
-        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Scripts -->
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'assets/js/skel.min.js' %}"></script>
+    <script src="{% static 'assets/js/util.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+    <!-- Agregados por pedro-->
+    <script src="{% static 'assets/js/jmodal.js' %}"></script>
+    <script src="{% static 'assets/js/jslider.js' %}"></script>
     </body>
 </html>
 

@@ -13,7 +13,7 @@ class Index(TemplateView):
     template_name = 'indexBase (2).html'
 
 
-class Cultivo(TemplateView):
+class VistaCultivo(TemplateView):
     template_name = 'cultivoh (2).html'
 
 
