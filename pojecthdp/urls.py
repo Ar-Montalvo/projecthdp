@@ -19,6 +19,6 @@ from django.contrib.auth.views import login,logout_then_login
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/login/', login, {'template_name':'Login/login.html'}, name='login' ),
-     url(r'^logout/',logout_then_login,name='logout'),
+    url(r'^logout/',logout_then_login,name='logout'),
     url(r'^sccc/',include('sccc.urls',namespace="sccc_tarea")),
 ]
